@@ -19,6 +19,7 @@ app.use(bodyParser.json())
 //rutas importadas
 var appRoutes = require('./routes/app');
 var usuarioRoutes = require('./routes/usuario');
+var hospitalRoutes = require('./routes/hospital'); 
 var loginRoutes = require('./routes/login');
 
 
@@ -34,6 +35,7 @@ mongoose.connection.openUri('mongodb://localhost:27017/archivoClinicodb', (err, 
 
 // referencia de Rutas importadas mejor conocidas como midelwer
 
+app.use('/hospital', hospitalRoutes);
 app.use('/login', loginRoutes);
 app.use('/usuario', usuarioRoutes);
 app.use('/', appRoutes);
