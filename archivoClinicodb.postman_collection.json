@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "7f0fde5a-51ad-49ff-9943-e6de7cb711fe",
+		"name": "archivoClinicodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario: obtener todos los usuarios",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"daniel\",\n\t\"apellido\": \"escalera\",\n\t\"email\": \"jonathan-daess@hotmail.com\"\n\t\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "Listado de usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: crear",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "daniel",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "apellido_p",
+							"value": "escalera",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "apellido_m",
+							"value": "cruz",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "correo_electronico",
+							"value": "jonathan-daess@htomail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/usuario",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "creacion de usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: actualizar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": " jose guadalupe",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "apellido_p",
+							"value": "escalera",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "apellido_m",
+							"value": "ovalle",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "correo_electronico",
+							"value": "ovalle@hotmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "1234",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "rol",
+							"value": "ADMIN_ROL",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/usuario/5b4caf698f22b7fc6233e682",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"5b4caf698f22b7fc6233e682"
+					]
+				},
+				"description": "Permite actualizar usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/usuario/5b4d0df332af1920a47ab8b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"5b4d0df332af1920a47ab8b7"
+					]
+				},
+				"description": "Metodo que permite eliminar a un usuario especifico"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo_electronico",
+							"value": "daniel@hotmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "12345",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Autentificacion de usuarios a la base de datos con token"
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: obtener hospitales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/hospital",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					]
+				},
+				"description": "Obtiene todos los hospitales de la coleccion hospial de mongodb"
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: crear",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Hospital los angeles",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "direccion",
+							"value": "calle buenavista 54",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "institucion_perteneciente",
+							"value": "unica",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tipo_de_institucion",
+							"value": "privada",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/hospital",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					]
+				},
+				"description": "Crear hospitales en la coleccion de mongodb"
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: actualizar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "hospital generla",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "ciudad de mexico",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "institucion_perteneciente",
+							"value": "gob",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tipo_de_institucion",
+							"value": "privada",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/hospital",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					]
+				},
+				"description": "Actualiza los datos de un hospital especifico"
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/hospital",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					]
+				},
+				"description": "Elimina usuarios especificos de la coleccion hospital en mongodb"
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: obtener medicos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo_electronico",
+							"value": "daniel@hotmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "12345",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/medico",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico"
+					]
+				},
+				"description": "hace una peticion de select para obtener los medicos de la colesccion en mongodb"
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: crear medicos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "daniel escalera",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "hospital",
+							"value": "5b5f3105e64b163a700bf5b3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/medico?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NjYxOSwiZXhwIjoxNTMyOTgxMDE5fQ.5H9tqqK9zsmTYr_v6S813dvUbcL9BU5Lf14PS9bCwzI",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NjYxOSwiZXhwIjoxNTMyOTgxMDE5fQ.5H9tqqK9zsmTYr_v6S813dvUbcL9BU5Lf14PS9bCwzI"
+						}
+					]
+				},
+				"description": "crear medicos "
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: actualizar medico",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "jonathan santiago",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "hospital",
+							"value": "5b4e5c578f9789223491a47d",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/medico/5b5f3918cc308d3270295f6d?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NzI3OCwiZXhwIjoxNTMyOTgxNjc4fQ.MyIJ-Z2JZwQldHhmiOLbszcubEPDIibXpD-smiXHDWU",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico",
+						"5b5f3918cc308d3270295f6d"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NzI3OCwiZXhwIjoxNTMyOTgxNjc4fQ.MyIJ-Z2JZwQldHhmiOLbszcubEPDIibXpD-smiXHDWU"
+						}
+					]
+				},
+				"description": "actualiza medico"
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: eliminar medico",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "jonathan santiago",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "hospital",
+							"value": "5b4e5c578f9789223491a47d",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/medico/5b5f3918cc308d3270295f6d?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NzI3OCwiZXhwIjoxNTMyOTgxNjc4fQ.MyIJ-Z2JZwQldHhmiOLbszcubEPDIibXpD-smiXHDWU",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico",
+						"5b5f3918cc308d3270295f6d"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbCI6IkFETUlOX1JPTEUiLCJfaWQiOiI1YjRlMDFiMjBmZjI4NzI4ZTgxYTE0ODMiLCJub21icmUiOiJkYW5pZWwiLCJhcGVsbGlkb19wIjoiZXNjYWxlcmEiLCJhcGVsbGlkb19tIjoiY3J1eiIsImNvcnJlb19lbGVjdHJvbmljbyI6ImRhbmllbEBob3RtYWlsLmNvbSIsImNvbnRyYXNlbmEiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTUzMjk2NzI3OCwiZXhwIjoxNTMyOTgxNjc4fQ.MyIJ-Z2JZwQldHhmiOLbszcubEPDIibXpD-smiXHDWU"
+						}
+					]
+				},
+				"description": "eliminar medico"
+			},
+			"response": []
+		}
+	]
+}
