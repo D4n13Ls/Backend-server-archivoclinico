@@ -22,8 +22,12 @@ app.get('/', (req, res, next) => {
     /*********************************/
     //OBTENER MEDICOS
     //BUSCA EN LA BASE DE DATOS 
-    /*********************************/
+var desde = req.query.desde || 0; // se crea una variable que nos dira desde donde de ara la busqueda
+desde = Number(desde);/*********************************/
+
     Medico.find({})
+        .skip(desde)
+        .limit(3)
         //los populate regresan informacion(data)de una coleccion especifica de la base de datos que deceemos
         .populate('hospital') 
         .populate('usuario', 'nombre correo_electronico')
@@ -41,13 +45,16 @@ app.get('/', (req, res, next) => {
                     });
                 }
 
-                // en caso contrario arrojara un 200 y el objeto de la base de datos
-                res.status(200).json({
+                Medico.count({}, (err, conteo) =>{
 
-                    ok: true,
-                    mensaje: medicos
-
-                });
+                    // en caso contrario arrojara un 200 y el objeto de la base de datos
+                    res.status(200).json({
+                        
+                        ok: true,
+                        mensaje: medicos,
+                        Total: conteo
+                    });
+                })
 
             })
 

@@ -24,7 +24,12 @@ app.get('/', (req, res, next) => {
     //OBTENER HOSPITALES
     //BUSCA EN LA BASE DE DATOS 
     /*********************************/
+    var desde = req.query.desde || 0; 
+    desde = Number(desde);
+
     Hospital.find({})
+    .skip(desde)
+    .limit(3)
         .populate('usuario', 'nombre correo_electronico')
         .exec( //ejecuta con esta linea de codigo, la busqueda de find
             (err, hospitales) => {
@@ -39,14 +44,15 @@ app.get('/', (req, res, next) => {
                     });
                 }
 
+                Hospital.count({}, (err, conteo) =>{
                 // en caso contrario arrojara un 200 y el objeto de la base de datos
                  res.status(200).json({
 
                     ok: true,
-                    hospitales: hospitales
-
+                    hospitales: hospitales,
+                    total: conteo
                 });
-                
+              })
             })
 
 });

@@ -48,14 +48,19 @@ desde = Number(desde); //convierte la variable desde a formato numero
                     });
                 }
 
-                // en caso contrario arrojara un 200 y el objeto de la base de datos
-                res.status(200).json({
+                //contador que devuelve el total de usuarios de la coleccion de usuarios mongodb
 
-                    ok: true,
-                    usuarios: usuarios
+                Usuario.count({}, (err, conteo) =>{
 
-                });
-
+                    // en caso contrario arrojara un 200 y el objeto de la base de datos
+                    res.status(200).json({
+                        
+                        ok: true,
+                        usuarios: usuarios,
+                        total: conteo
+                    });
+                })
+                    
             })
 
 });
