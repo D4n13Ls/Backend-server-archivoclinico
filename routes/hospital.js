@@ -1,6 +1,7 @@
 //importando librerias
 var express = require('express');
 
+
 // importando middlewares
 var mdautentificacion = require('../middlewares/autenticacion');
 
@@ -24,14 +25,13 @@ app.get('/', (req, res, next) => {
     //BUSCA EN LA BASE DE DATOS 
     /*********************************/
     Hospital.find({})
-        .populate('usuario', 'nombre apellido_p')
+        .populate('usuario', 'nombre correo_electronico')
         .exec( //ejecuta con esta linea de codigo, la busqueda de find
             (err, hospitales) => {
 
                 //si la busqueda dentro de la base de datos falla, arrojara un status 500
                 if (err) {
-                    return
-                    res.status(500).json({
+                    return res.status(500).json({
                         ok: false,
                         mensaje: 'base de datos hospitales no encontrada',
                         errors: err
@@ -40,7 +40,7 @@ app.get('/', (req, res, next) => {
                 }
 
                 // en caso contrario arrojara un 200 y el objeto de la base de datos
-                res.status(200).json({
+                 res.status(200).json({
 
                     ok: true,
                     hospitales: hospitales

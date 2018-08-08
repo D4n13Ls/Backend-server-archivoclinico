@@ -11,10 +11,10 @@ var hospitalSchema = new Schema({
     institucion_perteneciente: {type: String, required: [true, 'Apellido materno es obligatorio']},
     tipo_de_institucion:{type: String, required: [true, 'Tipo de institucion es requerido']},
     img: {type: String, required: false},
-    usuario: {	type: Schema.Types.ObjectId,	ref: 'Usuario' }
+    usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' }
 
 },	{	collection: 'hospitales' });
 
 
 //exporta el objeto de la funcion usuarioSchema
-module.exports = mongoose.model('hospital', hospitalSchema);
+module.exports = mongoose.model('Hospital', hospitalSchema);

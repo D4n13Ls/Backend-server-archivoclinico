@@ -24,6 +24,9 @@ app.get('/', (req, res, next) => {
     //BUSCA EN LA BASE DE DATOS 
     /*********************************/
     Medico.find({})
+        //los populate regresan informacion(data)de una coleccion especifica de la base de datos que deceemos
+        .populate('hospital') 
+        .populate('usuario', 'nombre correo_electronico')
         .exec( //ejecuta con esta linea de codigo, la busqueda de find
             (err, medicos) => {
 

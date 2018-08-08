@@ -25,11 +25,19 @@ app.get('/', (req, res, next) => {
     //OBTENER USUARIOS
     //BUSCA EN LA BASE DE DATOS 
     /*********************************/
+
+//variable (desde) define la busqueda en la paginacion 
+var desde = req.query.desde || 0; // se crea una variable que nos dira desde donde de ara la busqueda
+desde = Number(desde); //convierte la variable desde a formato numero
+
     Usuario.find({}, 'id nombre apellido_p apellido_m correo_electronico rol')
-        .exec( //ejecuta con esta linea de codigo, la busqueda de find
+
+        .skip(desde) // funcion de moongose que realiza un salto en la busqueda de acurdo al valor de la varible desde
+        .limit(3) // funcion de moongose nos devuelve solo 5 registros de la coleccion de usuarios de la base de datos
+        .exec( // funcion de moongose ejecuta con esta linea de codigo, la busqueda de find
             (err, usuarios) => {
 
-                //si la busqueda dentro de la base de datos falla, arrojara un status 500
+                //si la busqueda dentro de la base de datos falla, arrojara un error con status 500
                 if (err) {
                     return
                     res.status(500).json({
@@ -44,7 +52,7 @@ app.get('/', (req, res, next) => {
                 res.status(200).json({
 
                     ok: true,
-                    mensaje: usuarios
+                    usuarios: usuarios
 
                 });
 
