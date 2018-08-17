@@ -88,8 +88,17 @@ app.put('/:id', mdautentificacion.verificaToken ,(req, res, next) => {
         }
 
             medico.nombre = body.nombre;
+            medico.apellido_p = body.apellido_p,
+            medico.apellido_m = body.apellido_m,
+            medico.correo_electronico = body.correo_electronico,
+            medico.direccion = body.direccion,
+            medico.telefono = body.telefono,
+            medico.celular = body.celular,
+            medico.img = body.img,
+            medico.resena = body.resena,
             medico.usuario = req.usuario._id;
             medico.hospital = body.hospital;
+            
 
         medico.save((err, medicoGuardado) => {
             if (err) {
@@ -130,7 +139,14 @@ app.post('/', mdautentificacion.verificaToken , (req, res, next) => {
     // crea un nuevo objeto de medico de medico.js models
     var medico = new Medico({
         nombre:  body.nombre,
+        apellido_p: body.apellido_p,
+        apellido_m: body.apellido_m,
+        correo_electronico: body.correo_electronico,
+        direccion: body.direccion,
+        telefono: body.telefono,
+        celular: body.celular,
         img: body.img,
+        resena: body.resena,
         usuario: req.usuario._id,
         hospital: body.hospital
 

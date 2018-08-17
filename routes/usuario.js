@@ -97,6 +97,7 @@ app.put('/:id', mdautentificacion.verificaToken ,(req, res, next) => {
             usuario.apellido_m = body.apellido_m,
             usuario.correo_electronico = body.correo_electronico,
             usuario.contrasena = bcrypt.hashSync(body.contrasena, 10),
+            usuario.direccion = body.direccion,
             usuario.img = body.img,
             usuario.rol = body.rol
 
@@ -143,6 +144,7 @@ app.post('/', mdautentificacion.verificaToken , (req, res, next) => {
         apellido_m: body.apellido_m,
         correo_electronico: body.correo_electronico,
         contrasena: bcrypt.hashSync(body.contrasena, 10),
+        direccion: body.direccion,
         img: body.img,
         rol: body.rol
 
